@@ -16,7 +16,7 @@ class UserManager(BaseUserManager):
             email= self.normalize_email(email),
             username=username,
             first_name=first_name,
-            last_name=last_name
+            last_name=last_name,
         )
         user.set_password(password)
         user.save(using=self._db)
@@ -27,7 +27,7 @@ class UserManager(BaseUserManager):
             username=username,
             password=password,
             first_name=first_name,
-            last_name=last_name
+            last_name=last_name,
         )
         user.is_admin=True
         user.is_active=True
@@ -97,7 +97,7 @@ class UserProfile(models.Model):
     pin_code=models.CharField(max_length=6,blank=True,null=True)
     longitude=models.CharField(max_length=20,blank=True,null=True)
     latitude=models.CharField(max_length=20,blank=True,null=True)
-    created=models.DateTimeField(auto_now_add=True)
+    created_at=models.DateTimeField(auto_now_add=True)
     modified_at=models.DateTimeField(auto_now=True)
 
 
